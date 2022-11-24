@@ -12,12 +12,21 @@ class BooksController < ApplicationController
   end
   
   def index
-    @books = book
+    @books = books_path
+  end
+  
+  def show
+  end
+  
+  def edit
+  end
+  
+  def destroy
   end
   
   private
 
   def book_params
-    params.require(:book).permit(:book, :image, :caption)
+    params.require(:book).permit(:book, :caption)
   end
 end
