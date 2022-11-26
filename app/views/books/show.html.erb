@@ -1,0 +1,13 @@
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+           <td><span><%= @books.title %></span></td>
+           <td><span><%= @books.body %></span></td>
+           <td><%= link_to "Edit", edit_book_path(@books.id),class: "btn btn-success" %></td>
+           <td><%= link_to "Destroy", book_path(@books.id),class:"btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+        </tr>
+      </tbody>
+    </table>　
+</div>
