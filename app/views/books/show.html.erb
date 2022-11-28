@@ -3,6 +3,9 @@
     <table class="table">
       <tbody>
         <tr>
+           <td><%= image_tag @books.user.get_profile_image(100,100) %></td>
+             <!--ここに名前のリンクの貼り方ユーザー詳細にいきたい-->
+           <td><%= link_to @books.user.name, user_path(@books.user.id) %></td>
            <td><span><%= @books.title %></span></td>
            <td><span><%= @books.body %></span></td>
            <td><%= link_to "Edit", edit_book_path(@books.id),class: "btn btn-success" %></td>
