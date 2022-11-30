@@ -8,16 +8,19 @@ class BooksController < ApplicationController
     @books = Book.new(book_params)
     @books.user_id = current_user.id
     @books.save
-    render :show
+    redirect_to book_path(@books.id)
   end
   
   def index
+    @book = Book.new
     @books = Book.all
-    
+    @user = current_user
   end
   
   def show
     @books = Book.find(params[:id])
+    @user = @books.user
+    @book = Book.new
   end
   
   def edit

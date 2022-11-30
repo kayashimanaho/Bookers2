@@ -1,16 +1,20 @@
-<!--レイアウトしなきゃよーー-->
+<!--レイアウトできたのか？一応-->
 <div class ="container">
   <div class ="row">
-<div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
-<h1>Editing Book</h1>
-  <%= form_with model: @books do |f| %>
-  <label for="inputTitle">Title</label>
-  <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
-  <label for="inputBody">Opinion</label>
-  <%= f.text_area :body, autofocus: true, id:"inputOpinion" %>  
-  <%= f.submit "Update Book", class: "btn btn-success" do %>
-  <% end %>
-<% end %>
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <h1>Editing Book</h1>
+    <%= form_with model: @books do |f| %>
+      <div class="form-group">
+        <label for="inputTitle">Title</label><br>
+          <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
+      </div>
+      <div class="form-group">
+        <label for="inputBody">Opinion</label><br>
+          <%= f.text_area :body, autofocus: true, id:"inputOpinion" %>
+      </div>    
+          <%= f.submit "Update Book", class: "btn btn-success" do %>
+          <% end %>
+      <% end %>
 
 <%= link_to "Show", book_path(@books.id) %>
 |
