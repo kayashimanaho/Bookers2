@@ -1,3 +1,11 @@
+<% if @books.errors.any? %>
+  <%= @books.errors.count %>error prohibited this obj from being saved
+  <ul>
+    <% @books.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <!--レイアウトできたのか？一応-->
 <div class ="container">
   <div class ="row">

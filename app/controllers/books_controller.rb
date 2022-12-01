@@ -32,7 +32,11 @@ class BooksController < ApplicationController
   end
   
   def edit
-    @books = Book.find(params[:id])
+     @books = Book.find(params[:id])
+  if @user == current_user
+     render :edit
+  else
+     redirect_to 
   end
   
   def destroy
