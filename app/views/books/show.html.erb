@@ -1,28 +1,27 @@
-<div class="container px-5 px-sm-0">
+<div><%= flash[:notice] %></div>
+  <div class="container px-5 px-sm-0">
     <div class="row">
-  
-<!--部分テンプok-->
-<%= render 'users/book',user: @user, books: @book %>
+  <!--部分テンプok-->
+    <%= render 'users/book',user: @user, books: @book %>
 
-<div class="col-md-8 offset-md-1">
-  <h2>Book detail</h2>
-    <table class="table">
-      <tbody>
-        <tr>
-           <td><%= image_tag @books.user.get_profile_image(100,100) %><br>
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><%= image_tag @books.user.get_profile_image(100,100) %><br>
              <!--ここに名前のリンクの貼り方ユーザー詳細にいきたい-->
-           <td><%= link_to @books.user.name, user_path(@books.user.id) %></td>
-           </td>
-           <td><%= link_to @books.title,book_path(@books.id) %></td>
-           <td><%= @books.body %></td>
-           
-           <td><%= link_to "Edit", edit_book_path(@books.id),class: "btn btn-success" %></td>
-           <% if @books.user_id == current_user.id %>
-           <td><%= link_to "Destroy", book_path(@books.id),class:"btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
-           <% end %>
-        </tr>
-      </tbody>
-    </table>
-</div>
-</div>
-</div>
+                <%= link_to @books.user.name, user_path(@books.user.id) %>
+                </td>
+                <td><%= link_to @books.title,book_path(@books.id) %></td>
+                <td><%= @books.body %></td>
+               <% if @books.user_id == current_user.id %>
+                <td><%= link_to "Edit", edit_book_path(@books.id),class: "btn btn-success" %></td>
+                <td><%= link_to "Destroy", book_path(@books.id),class:"btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+               <% end %>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

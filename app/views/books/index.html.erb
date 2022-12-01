@@ -1,8 +1,16 @@
+<% if @books.errors.any? %>
+  <%= @books.errors.count %>errors prohibited this obj from being saved
+  <ul>
+    <% @books.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="container px-5 px-sm-0">
-    <div class="row">
+  <div class="row">
   
 <!--あっているのか？-->
-<%= render 'users/book',user: @user, book: @book %>
+<%= render 'users/book',user: @user, book: @books %>
 
 
     
@@ -19,10 +27,10 @@
               </tr>
             </thead>
             <tbody>
-              <% @books.each do |book| %>
+              <% @book_all.each do |book| %>
                 <tr>
-                  <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-                  <td><%= book.title %></td>
+                  <td><%= link_to image_tag book.user.get_profile_image(100,100) %></td>
+                  <td><%= link_to book.title,book_path(book.id) %></td>
                   <td><%= book.body %></td>
                 </tr>
               <% end %>
