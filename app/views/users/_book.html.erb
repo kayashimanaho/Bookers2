@@ -15,11 +15,10 @@
     </tbody>
   </table>
     
-    <% if user == current_user %>
       <%= link_to edit_user_path(user.id) ,class: 'btn btn-outline-secondary' do %>
-      <span><i class="fa-solid fa-user-gear"></i></span>
+        <span><i class="fas fa-user-cog"></i></span>
       <% end %>
-    <% end %>
+  
     <!--<i class="fa-solid fa-user-plus"></i><a class="btn btn-outline-secondary btn-block edit_user_id"></a>-->
   
 
