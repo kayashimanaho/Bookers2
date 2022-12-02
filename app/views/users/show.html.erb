@@ -1,9 +1,8 @@
 <div><%= flash[:notice] %></div>
 
-<div class="all container d-md-flex">
+<div class="container px-5 px-sm-0">
   <div class="row">
     <%= render 'book',user: @user, books: @books %>
-  </div>
     
    <div class="col-md-8 offset-md-1">
     <h2>Books</h2>
@@ -26,5 +25,6 @@
           <% end %>
         </tbody>
       </table>
+    </div>
     </div>
 </div>

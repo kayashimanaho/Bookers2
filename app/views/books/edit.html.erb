@@ -1,32 +1,33 @@
-<% if @books.errors.any? %>
-  <%= @books.errors.count %>error prohibited this obj from being saved
-  <ul>
-    <% @books.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+
 <!--レイアウトできたのか？一応-->
 <div class ="container">
   <div class ="row">
-<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  <h1>Editing Book</h1>
-    <%= form_with model: @books do |f| %>
-      <div class="form-group">
-        <label for="inputTitle">Title</label><br>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+      <%= @book.errors.count %>error prohibited this obj from being saved
+        <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <%= form_with model: @book do |f| %>
+        <div class="form-group">
+          <label for="inputTitle">Title</label><br>
           <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
-      </div>
-      <div class="form-group">
-        <label for="inputBody">Opinion</label><br>
+        </div>
+        <div class="form-group">
+          <label for="inputBody">Opinion</label><br>
           <%= f.text_area :body, autofocus: true, id:"inputOpinion" %>
-      </div>    
+        </div>    
           <%= f.submit "Update Book", class: "btn btn-success" do %>
           <% end %>
       <% end %>
 
-<%= link_to "Show", book_path(@books.id) %>
-|
-<%= link_to "Back", books_path(@books.id) %>
-</div>
-</div>
+      <%= link_to "Show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
 </div>
